@@ -7,7 +7,7 @@ Welcome to Wizard Armageddon, a small, text-based game about wizards, spells, an
 - Battle randomized monsters, each with unique weaknesses and resistances to your spells
 - Encounter other wizards (AI controlled) that seek to duel with any wizard they find
 ___________________________________________________________________________________________________________________________________________________________________
-All the source code files are included in the $src$ folder, and the .jar executable file is in the $dist$ folder.
+All the source code files are included in the $Source \ Files$ folder, and the .jar executable file is in the $Executable$ folder.
 
 To run the game, simply download the .jar executable file, copy the path to that file, and then enter this into your device's terminal:
 
@@ -24,6 +24,13 @@ ________________________________________________________________________________
 
 
 ## Changelog
+
+### Update 1.2 
+
+- Added many new spells, items, and enemies
+- Added a new "Hell Dimension" adventure area, extremely risky with insane rewards
+- Minor bug fixes
+
 ### Update 1.1 (1st Commit)
 
 - Added the ability to create new custom spells after the player reaches **level 10**
