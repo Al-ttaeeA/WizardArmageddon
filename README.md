@@ -25,6 +25,13 @@ ________________________________________________________________________________
 
 ## Changelog
 
+### Update 2.0
+
+- Added a new save game feature, you can save your data to continue later
+- Balance changes to the Wizard enemy's behvaiour, modifiers, and items
+- Balance changes to the random item drops from enemies, drop chance 
+  changes according to difficulty, higher difficulty equals better chances
+
 ### Update 1.2 
 
 - Added many new spells, items, and enemies

@@ -48,9 +48,7 @@ public class Main {
         Commands.pressEnter();
         
         
-        System.out.print("Please enter your username: ");
-        playName = Commands.inputString();
-        Commands.clear();
+        Savegames.Savegames(); //Calls in savegames so that the program either starts a new game or loads an old save game
         
         
         System.out.println("Rules to follow:");
@@ -99,7 +97,7 @@ public class Main {
                 System.out.println("\n3. The Inn");
                 System.out.println("\n4. The Town Hall");
                 System.out.println("\n5. Start a new adventure");
-                System.out.println("\n6. End the journey\n");
+                System.out.println("\n6. Save and exit\n");
                 villageChoice = Commands.inputInt(1, 6);
                 
                 Commands.clear();
@@ -132,7 +130,7 @@ public class Main {
                         break;
                     }
                     case 6:{
-                        //Case 6 for exitting the game
+                        //Case 6 for saving and exitting the game
                         exit();
                         break;
                     }
@@ -1152,67 +1150,32 @@ public class Main {
      ************************/
     public static void exit(){
         //Declare snecessary variables
-        int sureChoice;
+        int saveChoice;
         
-        //Print what exitting the game means and ask if the user wishes to exit
-        System.out.println("Ending your journey means exitting the game, by doing so you lose all your progress");
-        System.out.println("However, your progress will be saved on a file and you will be able to view it in the "
-                + "\nprevious runs section of the Townhall");
-        System.out.println("\nAre you sure you want to end your journey?");
-        System.out.println("\n1. Yes");
-        System.out.println("\n2. No\n");
-        sureChoice = Commands.inputInt(1, 2);
+        //Ask the user to make sure if the player wants to save and exit or not
+        System.out.println("Are you sure you want to save and exit?");
+        System.out.println("\nEverything will be saved except for the list of monsters defeated and trophies");
+        System.out.println("\n1. Save and exit");
+        System.out.println("\n2. Return to main menu\n");
+        saveChoice = Commands.inputInt(1, 2);
         Commands.clear();
         
-        //End the method if the user wishes to stay
-        if(sureChoice != 1){
-            return;
+        switch(saveChoice){
+            case 1:{
+                if(Savegames.save() == -1){
+                    return;
+                }
+                
+                System.out.println("Your data has been saved, you can load it the next time you play");
+                System.out.println("\nThank you for playing Wizard Armageddon!");
+                Commands.pressEnter();
+                
+                System.exit(0);
+            }
+            case 2:{
+                return;
+            }
         }
-        
-        
-        //Make sure the user wants to exit
-        System.out.println("Are you 100% sure you want to end your journey, you will lose all progress?");
-        System.out.println("\n1. Yes");
-        System.out.println("\n2. No\n");
-        sureChoice = Commands.inputInt(1, 2);
-        Commands.clear();
-        
-        //End the method if the user wishes to stay
-        if(sureChoice != 1){
-            return;
-        }
-        
-        
-        //Give the user a last chance before exitting
-        System.out.println("Last chance to return, are you sure you want to exit?");
-        System.out.println("\n1. Yes");
-        System.out.println("\n2. No\n");
-        sureChoice = Commands.inputInt(1, 2);
-        Commands.clear();
-        
-        //End the method if the user wishes to stay
-        if(sureChoice != 1){
-            return;
-        }
-        
-        
-        //Print the user's data onto the previous runs file
-        Townhall.printPreviousRun(playName, playLevel, totalGainedGold);
-        
-        //Ending message
-        System.out.println("Well then, your journey ends here...");
-        System.out.println("\nAfter many adventures, countless memorized spells, and many raided areas of Riucaria, "
-                + "\nyour journey ends after defeating " + Townhall.enemiesDefeated.size() + " enemies...");
-        Commands.pressEnter();
-        
-        System.out.println("One extra thing you may want to know before leaving the game:");
-        System.out.println("\nThere is an easter egg in the game that you might have stumbled upon accidentally, "
-                + "\nit is highly advised that you try to seek it (hint: it is connected to the "
-                + "\nNothing spell that you start with)");
-        System.out.println("\n\nThank you for playing Wizard's Armageddon!!!");
-        Commands.pressEnter();
-        
-        System.exit(0);
     }
 }
  
